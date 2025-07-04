@@ -4,7 +4,7 @@ import './DemoDashboard.css';
 const DemoDashboard = ({ onLogout }) => {
   const [selectedMonth, setSelectedMonth] = useState('Ocak');
 
-  // Demo data matching the design
+  // Demo data matching the exact design
   const successRate = {
     grade: 'A+',
     percentage: '94%',
@@ -12,19 +12,19 @@ const DemoDashboard = ({ onLogout }) => {
   };
 
   const interviewSuccess = [
-    { day: 'Mon 22', value: 80 },
-    { day: 'Tue 23', value: 85 },
-    { day: 'Wed 24', value: 90 },
-    { day: 'Thu 25', value: 95 },
-    { day: 'Fri 26', value: 100 }
+    { day: 'Mon 22', value: 80, height: '80%' },
+    { day: 'Tue 23', value: 85, height: '85%' },
+    { day: 'Wed 24', value: 95, height: '95%' },
+    { day: 'Thu 25', value: 90, height: '90%' },
+    { day: 'Fri 26', value: 100, height: '100%' }
   ];
 
   const upcomingInterviews = [
-    { time: '22', day: 'Monday', candidate: 'Ayşe K.', position: 'Frontend' },
-    { time: '23', day: 'Tuesday', candidate: 'Mehmet S.', position: 'Backend' },
-    { time: '24', day: 'Wednesday', candidate: 'Zehra A.', position: 'UX/UI' },
-    { time: '25', day: 'Thursday', candidate: 'Can Y.', position: 'DevOps' },
-    { time: '26', day: 'Friday', candidate: 'Elif T.', position: 'Data' }
+    { date: '22', day: 'Monday', candidate: 'Ayşe K.', position: 'Frontend' },
+    { date: '23', day: 'Tuesday', candidate: 'Mehmet S.', position: 'Backend' },
+    { date: '24', day: 'Wednesday', candidate: 'Zehra A.', position: 'UX/UI' },
+    { date: '25', day: 'Thursday', candidate: 'Can Y.', position: 'DevOps' },
+    { date: '26', day: 'Friday', candidate: 'Elif T.', position: 'Data Sci' }
   ];
 
   const todayInterviews = [
@@ -35,13 +35,18 @@ const DemoDashboard = ({ onLogout }) => {
   ];
 
   const teamMembers = [
-    { name: 'Ayşe Demir', role: 'HR Manager', status: 'online' },
-    { name: 'Mehmet Kaya', role: 'Tech Lead', status: 'online' },
-    { name: 'Zehra Öztürk', role: 'Recruitment Specialist', status: 'online' }
+    { name: 'Ayşe Demir', role: 'HR Manager', status: 'online', avatar: '👩‍💼' },
+    { name: 'Mehmet Kaya', role: 'Tech Lead', status: 'online', avatar: '👨‍💻' },
+    { name: 'Zehra Öztürk', role: 'Recruitment Specialist', status: 'online', avatar: '👩‍💻' }
   ];
 
   const recentActivity = [
-    { action: 'Yeni Pozisyon Açıldı', description: 'Senior React Developer pozisyonu için mülakat süreci başladı. 25 aday başvurdu.', time: '2 saat önce' }
+    { 
+      action: 'Yeni Pozisyon Açıldı', 
+      description: 'Senior React Developer pozisyonu için mülakat süreci başladı. 25 aday başvurdu.',
+      time: '2 saat önce',
+      icon: '📝'
+    }
   ];
 
   return (
@@ -53,22 +58,19 @@ const DemoDashboard = ({ onLogout }) => {
             <span className="logo-text">Recula</span>
           </div>
           <nav className="nav-menu">
-            <a href="/dashboard" className="nav-item active">Dashboard</a>
-            <a href="/adaylar" className="nav-item">Adaylar</a>
-            <a href="/mulakatlar" className="nav-item">Mülakatlar</a>
-            <a href="/raporlar" className="nav-item">Raporlar</a>
-            <a href="/ayarlar" className="nav-item">Ayarlar</a>
-            <a href="/yardim" className="nav-item">Yardım</a>
+            <a href="#" className="nav-item active">Dashboard</a>
+            <a href="#" className="nav-item">Adaylar</a>
+            <a href="#" className="nav-item">Mülakatlar</a>
+            <a href="#" className="nav-item">Raporlar</a>
+            <a href="#" className="nav-item">Ayarlar</a>
+            <a href="#" className="nav-item">Yardım</a>
           </nav>
         </div>
         <div className="header-right">
           <div className="notification-icon">🔔</div>
           <div className="user-menu">
             <span className="user-name">Demo Kullanıcı</span>
-            <button onClick={onLogout} className="logout-btn">
-              <span className="logout-icon">🚪</span>
-              Log out
-            </button>
+            <button onClick={onLogout} className="logout-btn">Log out</button>
           </div>
         </div>
       </header>
@@ -80,12 +82,14 @@ const DemoDashboard = ({ onLogout }) => {
           <div className="analytics-card">
             <div className="analytics-header">
               <h2>Recruitment <span className="success-text">Success</span></h2>
-              <p>Analytics</p>
+              <p className="analytics-subtitle">Analytics</p>
               <p className="ai-powered">AI-powered insights</p>
             </div>
             <div className="grade-display">
-              <span className="grade-letter">A+</span>
-              <span className="grade-percentage">{successRate.percentage}</span>
+              <div className="grade-section">
+                <span className="grade-letter">A+</span>
+                <span className="grade-percentage">{successRate.percentage}</span>
+              </div>
               <p className="last-update">Son güncelleme: {successRate.lastUpdate}</p>
             </div>
           </div>
@@ -95,9 +99,9 @@ const DemoDashboard = ({ onLogout }) => {
             <div className="chart-header">
               <h3>Mülakat Başarı Oranı</h3>
               <div className="chart-controls">
-                <span>Önceki hafta</span>
-                <span>Önceki ay</span>
-                <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)}>
+                <span className="control-item">Önceki hafta</span>
+                <span className="control-item">Önceki ay</span>
+                <select value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)} className="month-select">
                   <option value="Ocak">Ocak</option>
                   <option value="Şubat">Şubat</option>
                   <option value="Mart">Mart</option>
@@ -118,7 +122,8 @@ const DemoDashboard = ({ onLogout }) => {
                   <div key={index} className="bar-container">
                     <div 
                       className="chart-bar" 
-                      style={{ height: `${item.value}%` }}
+                      style={{ height: item.height }}
+                      data-value={item.value}
                     ></div>
                     <span className="bar-label">{item.day}</span>
                   </div>
@@ -131,19 +136,19 @@ const DemoDashboard = ({ onLogout }) => {
           <div className="team-card">
             <div className="team-header">
               <h3>Takım Üyeleri</h3>
-              <p>Aktif ekip üyelerini görebilirsiniz.</p>
+              <p className="team-subtitle">Aktif ekip üyelerini görebilirsiniz.</p>
             </div>
             <div className="team-list">
               {teamMembers.map((member, index) => (
                 <div key={index} className="team-member">
                   <div className="member-avatar">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                    <span className="avatar-emoji">{member.avatar}</span>
+                    <div className={`status-dot ${member.status}`}></div>
                   </div>
                   <div className="member-info">
-                    <h4>{member.name}</h4>
-                    <p>{member.role}</p>
+                    <h4 className="member-name">{member.name}</h4>
+                    <p className="member-role">{member.role}</p>
                   </div>
-                  <div className={`status-indicator ${member.status}`}></div>
                 </div>
               ))}
             </div>
@@ -152,16 +157,23 @@ const DemoDashboard = ({ onLogout }) => {
 
           {/* Upcoming Interviews Calendar */}
           <div className="calendar-card">
-            <h3>Yaklaşan Mülakatlar</h3>
+            <div className="calendar-header">
+              <h3>Yaklaşan Mülakatlar</h3>
+              <button className="calendar-btn">+ Mülakat Günü</button>
+            </div>
             <div className="interview-calendar">
-              {upcomingInterviews.map((interview, index) => (
-                <div key={index} className="calendar-day">
-                  <div className="day-number">{interview.time}</div>
-                  <div className="day-name">{interview.day}</div>
-                  <div className="day-candidate">{interview.candidate}</div>
-                  <div className="day-position">{interview.position}</div>
-                </div>
-              ))}
+              <div className="calendar-grid">
+                {upcomingInterviews.map((interview, index) => (
+                  <div key={index} className="calendar-day">
+                    <div className="day-number">{interview.date}</div>
+                    <div className="day-name">{interview.day}</div>
+                    <div className="interview-info">
+                      <div className="candidate-name">{interview.candidate}</div>
+                      <div className="candidate-position">{interview.position}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -169,15 +181,14 @@ const DemoDashboard = ({ onLogout }) => {
           <div className="today-interviews-card">
             <div className="today-header">
               <h3>Bugünün Mülakatları</h3>
-              <button className="today-btn">+ Mülakat Günü</button>
             </div>
             <div className="today-list">
               {todayInterviews.map((interview, index) => (
                 <div key={index} className="today-interview">
                   <div className="interview-time">{interview.time}</div>
                   <div className="interview-details">
-                    <h4>{interview.candidate}</h4>
-                    <p>{interview.position}</p>
+                    <h4 className="candidate-name">{interview.candidate}</h4>
+                    <p className="position-title">{interview.position}</p>
                   </div>
                 </div>
               ))}
@@ -193,10 +204,10 @@ const DemoDashboard = ({ onLogout }) => {
             <div className="activity-list">
               {recentActivity.map((activity, index) => (
                 <div key={index} className="activity-item">
-                  <div className="activity-icon">📝</div>
+                  <div className="activity-icon">{activity.icon}</div>
                   <div className="activity-content">
-                    <h4>{activity.action}</h4>
-                    <p>{activity.description}</p>
+                    <h4 className="activity-title">{activity.action}</h4>
+                    <p className="activity-description">{activity.description}</p>
                     <span className="activity-time">{activity.time}</span>
                   </div>
                 </div>
