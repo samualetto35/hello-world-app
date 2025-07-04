@@ -53,19 +53,22 @@ const DemoDashboard = ({ onLogout }) => {
             <span className="logo-text">Recula</span>
           </div>
           <nav className="nav-menu">
-            <a href="#" className="nav-item active">Dashboard</a>
-            <a href="#" className="nav-item">Adaylar</a>
-            <a href="#" className="nav-item">Mülakatlar</a>
-            <a href="#" className="nav-item">Raporlar</a>
-            <a href="#" className="nav-item">Ayarlar</a>
-            <a href="#" className="nav-item">Yardım</a>
+            <a href="/dashboard" className="nav-item active">Dashboard</a>
+            <a href="/adaylar" className="nav-item">Adaylar</a>
+            <a href="/mulakatlar" className="nav-item">Mülakatlar</a>
+            <a href="/raporlar" className="nav-item">Raporlar</a>
+            <a href="/ayarlar" className="nav-item">Ayarlar</a>
+            <a href="/yardim" className="nav-item">Yardım</a>
           </nav>
         </div>
         <div className="header-right">
           <div className="notification-icon">🔔</div>
           <div className="user-menu">
             <span className="user-name">Demo Kullanıcı</span>
-            <button onClick={onLogout} className="logout-btn">Log out</button>
+            <button onClick={onLogout} className="logout-btn">
+              <span className="logout-icon">🚪</span>
+              Log out
+            </button>
           </div>
         </div>
       </header>
