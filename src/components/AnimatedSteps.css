@@ -1,0 +1,204 @@
+/* Desktop - keep as text only */
+.animated-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 24px 30px 24px;
+  background-color: white;
+}
+
+.steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.step {
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.step.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.step.visible.current {
+  color: #000;
+}
+
+.step.visible.previous {
+  color: #9ca3af;
+}
+
+.step.visible.all-visible {
+  color: #000;
+}
+
+.step.hidden {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.recula-text {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.separator {
+  font-size: 18px;
+  color: #9ca3af;
+  margin: 0 8px;
+  transition: opacity 0.5s ease;
+}
+
+.separator.visible {
+  opacity: 1;
+}
+
+.separator.hidden {
+  opacity: 0;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .animated-steps {
+    padding: 15px 20px;
+  }
+  
+  .steps-container {
+    max-width: 800px;
+  }
+  
+  .step {
+    font-size: 16px;
+  }
+  
+  .separator {
+    font-size: 16px;
+    margin: 0 6px;
+  }
+}
+
+/* Mobile responsiveness - show one step at a time */
+@media (max-width: 768px) {
+  .animated-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px;
+    background-color: white;
+    min-height: 80px;
+  }
+  
+  .steps-container {
+    position: relative;
+    max-width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .step {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+  }
+  
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+  }
+  
+  .step.hidden {
+    opacity: 0;
+    transform: translateY(-40px);
+    z-index: 0;
+  }
+  
+  .step.exiting {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.6, 0, 0.4, 1);
+    z-index: 0;
+  }
+  
+  .separator {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .animated-steps {
+    padding: 15px 12px;
+    min-height: 70px;
+  }
+  
+  .steps-container {
+    height: 50px;
+  }
+  
+  .step {
+    font-size: 16px;
+    transform: translateY(-35px);
+  }
+  
+  .step.visible {
+    transform: translateY(0);
+  }
+  
+  .step.hidden {
+    transform: translateY(-35px);
+  }
+  
+  .step.exiting {
+    transform: translateY(35px);
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 360px) {
+  .animated-steps {
+    padding: 12px 8px;
+    min-height: 60px;
+  }
+  
+  .steps-container {
+    height: 45px;
+  }
+  
+  .step {
+    font-size: 14px;
+    transform: translateY(-30px);
+  }
+  
+  .step.visible {
+    transform: translateY(0);
+  }
+  
+  .step.hidden {
+    transform: translateY(-30px);
+  }
+  
+  .step.exiting {
+    transform: translateY(30px);
+  }
+} 

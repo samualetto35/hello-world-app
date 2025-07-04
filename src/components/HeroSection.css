@@ -1,0 +1,146 @@
+.hero-section {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 40px 24px;
+  background-color: white;
+  padding-top: 120px;
+}
+
+.hero-container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-brand {
+  color: #f97316;
+  position: relative;
+  font-weight: 500;
+}
+
+.hero-brand::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #f97316;
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  color: #9ca3af;
+  margin: 0 0 40px 0;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0 24px;
+}
+
+.hero-cta-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  outline: none;
+  margin: 0;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-cta-btn:hover {
+  background-color: #000;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 30px 20px 30px 20px;
+    min-height: 35vh;
+    padding-top: 180px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  
+  .hero-brand::after {
+    height: 2px;
+    bottom: -2px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    font-weight: 500;
+    padding: 0 16px;
+  }
+  
+  .hero-cta-btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 20px 16px 20px 16px;
+    min-height: 30vh;
+    padding-top: 160px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 28px;
+    font-weight: 500;
+    padding: 0 12px;
+  }
+  
+  .hero-cta-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+} 

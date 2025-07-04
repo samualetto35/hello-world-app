@@ -1,5 +1,21 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  padding-top: 80px; /* Account for fixed header */
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px; /* Smaller padding for mobile header */
+  }
 }
 
 .App-logo {

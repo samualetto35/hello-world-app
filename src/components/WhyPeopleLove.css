@@ -1,0 +1,201 @@
+.why-people-love {
+  background-color: #f8f9fa;
+  padding: 80px 24px;
+}
+
+.why-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 60px 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 80px;
+  align-items: start;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  color: #f97316;
+  flex-shrink: 0;
+}
+
+.feature-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  color: #ea580c;
+  transform: translateY(-2px);
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Last item spans full width */
+.feature-card:last-child {
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 0;
+  text-align: left;
+}
+
+.feature-card:last-child .feature-icon {
+  margin: 0 0 16px 0;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .why-people-love {
+    padding: 60px 20px;
+  }
+  
+  .why-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+  
+  .features-grid {
+    gap: 50px 60px;
+  }
+  
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .feature-title {
+    font-size: 1.4rem;
+  }
+  
+  .feature-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .why-people-love {
+    padding: 50px 16px;
+  }
+  
+  .why-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .feature-card {
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px auto;
+  }
+  
+  .feature-title {
+    font-size: 1.3rem;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+  }
+  
+  .feature-card:last-child {
+    grid-column: 1;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .feature-card:last-child .feature-icon {
+    margin: 0 auto 12px auto;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .why-people-love {
+    padding: 40px 12px;
+  }
+  
+  .why-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  
+  .features-grid {
+    gap: 35px;
+  }
+  
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+  }
+  
+  .feature-description {
+    font-size: 0.85rem;
+  }
+} 
