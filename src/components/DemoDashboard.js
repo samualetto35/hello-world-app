@@ -67,8 +67,9 @@ const DemoDashboard = ({ onLogout }) => {
           </nav>
         </div>
         <div className="header-right">
-          <div className="notification-icon">🔔</div>
+          <div className="notification-icon"></div>
           <div className="user-menu">
+            <div className="user-icon"></div>
             <span className="user-name">Demo Kullanıcı</span>
             <button onClick={onLogout} className="logout-btn">Log out</button>
           </div>
