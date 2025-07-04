@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -36,9 +36,21 @@ const HomePage = ({ onLoginClick }) => {
   );
 };
 
-function App() {
-  const [showDashboard, setShowDashboard] = useState(false);
+const DashboardPage = () => {
+  const navigate = useNavigate();
+  
+  const handleLogout = () => {
+    // Dashboard'dan çıkış yapınca ana sayfaya yönlendir
+    navigate('/');
+  };
+
+  return <DemoDashboard onLogout={handleLogout} />;
+};
+
+const AppContent = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLoginClick = () => {
     setShowLoginModal(true);
@@ -49,21 +61,13 @@ function App() {
   };
 
   const handleDemoLogin = () => {
-    setShowDashboard(true);
     setShowLoginModal(false);
+    // Demo login sonrası dashboard sayfasına yönlendir
+    navigate('/dashboard');
   };
-
-  const handleLogout = () => {
-    setShowDashboard(false);
-  };
-
-  // If dashboard is active, show only dashboard
-  if (showDashboard) {
-    return <DemoDashboard onLogout={handleLogout} />;
-  }
 
   return (
-    <Router>
+    <>
       <Routes>
         <Route path="/" element={<HomePage onLoginClick={handleLoginClick} />} />
         <Route path="/solutions" element={<SolutionsPage onLoginClick={handleLoginClick} />} />
@@ -71,6 +75,7 @@ function App() {
         <Route path="/faqs" element={<FAQsPage onLoginClick={handleLoginClick} />} />
         <Route path="/pricing" element={<PricingPage onLoginClick={handleLoginClick} />} />
         <Route path="/contact" element={<ContactPage onLoginClick={handleLoginClick} />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
       
       <LoginModal 
@@ -78,6 +83,14 @@ function App() {
         onClose={handleCloseModal}
         onDemoLogin={handleDemoLogin}
       />
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
