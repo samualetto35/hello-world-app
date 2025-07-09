@@ -1,0 +1,144 @@
+.top-performers {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.performers-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.performers-header p {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.performers-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.performer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.performer-item:last-child {
+  border-bottom: none;
+}
+
+.performer-info {
+  flex: 1;
+}
+
+.performer-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.performer-email {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.performer-metrics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.score-display {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  min-width: 40px;
+  text-align: right;
+}
+
+.mini-bars {
+  display: flex;
+  gap: 2px;
+  align-items: end;
+  height: 20px;
+}
+
+.mini-bar {
+  width: 4px;
+  height: 20px;
+  background: #f3f4f6;
+  border-radius: 2px;
+  position: relative;
+}
+
+.mini-bar-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #6b7280;
+  border-radius: 2px;
+  transition: height 0.3s ease;
+}
+
+.show-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.show-all:hover {
+  color: #374151;
+}
+
+.show-all svg {
+  transition: transform 0.2s ease;
+}
+
+.show-all:hover svg {
+  transform: translateX(2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .top-performers {
+    padding: 20px;
+  }
+  
+  .performer-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .performer-metrics {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .score-display {
+    font-size: 20px;
+  }
+} 
